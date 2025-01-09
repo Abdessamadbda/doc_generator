@@ -1,0 +1,200 @@
+<!doctype html>
+<html>
+ <head>
+  <title>API Documentation</title>
+  <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1 {
+            color: #1a365d;
+            border-bottom: 2px solid #e2e8f0;
+            padding-bottom: 0.5rem;
+            margin-top: 2rem;
+        }
+        h2 {
+            color: #2c5282;
+            margin-top: 1.5rem;
+        }
+        .controller-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            background: #f8fafc;
+            border-radius: 0.5rem;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .endpoint {
+            background: white;
+            border-left: 4px solid #4299e1;
+            padding: 1rem;
+            margin: 1rem 0;
+            border-radius: 0.25rem;
+        }
+        .method {
+            display: inline-block;
+            background: #4299e1;
+            color: white;
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.25rem;
+            font-weight: bold;
+            margin-right: 1rem;
+        }
+        .description {
+            margin: 1rem 0;
+            padding-left: 1rem;
+            border-left: 2px solid #e2e8f0;
+        }
+        .params {
+            margin-top: 0.5rem;
+            font-family: monospace;
+        }
+        .nav {
+            position: sticky;
+            top: 0;
+            background: white;
+            padding: 1rem;
+            border-bottom: 1px solid #e2e8f0;
+            margin-bottom: 2rem;
+        }
+    </style>
+ </head>
+ <body>
+  <div class="project-overview">
+   <div class="overview-header">
+    <h1>Project Overview</h1>
+    <div class="overview-content">
+     <h2>HiringHero API Documentation</h2>
+     <p>This documentation provides a comprehensive guide to the HiringHero REST API endpoints.</p>
+     <div class="project-info">
+      <h3>Project Information</h3>
+      <ul>
+       <li><strong>Project Name:</strong> HiringHero Backend API</li>
+       <li><strong>Version:</strong> 1.0.0</li>
+       <li><strong>Base URL:</strong> /api/v1</li>
+      </ul>
+     </div>
+     <div class="tech-stack">
+      <h3>Technology Stack</h3>
+      <ul>
+       <li>Spring Boot</li>
+       <li>Spring Security</li>
+       <li>JWT Authentication</li>
+       <li>RESTful Architecture</li>
+      </ul>
+     </div>
+    </div>
+   </div>
+   <style>
+        .project-overview {
+            background: #ffffff;
+            padding: 2rem;
+            margin: 2rem 0;
+            border-radius: 0.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .overview-header h1 {
+            color: #1a365d;
+            margin-bottom: 1.5rem;
+        }
+        .project-info, .tech-stack {
+            margin: 1.5rem 0;
+        }
+        .overview-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        .overview-content li {
+            margin: 0.5rem 0;
+        }
+        .tech-stack ul {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .tech-stack li {
+            background: #e2e8f0;
+            padding: 0.25rem 0.75rem;
+            border-radius: 1rem;
+        }
+    </style>
+  </div>
+  <div class="nav">
+   <h1>API Documentation</h1>
+  </div>
+  <div class="controller-section">
+   <h2>OfferController</h2>
+   <div class="description">
+    The OfferController class handles HTTP requests related to offers, including processing forms, sharing on LinkedIn, and uploading CVs.
+   </div>
+   <div class="metadata">
+    <p><strong>Author:</strong> Unknown Author</p>
+    <p><strong>Version:</strong> 1.0.0</p>
+    <p><strong>Last Modified:</strong> Unknown</p>
+   </div>
+   <div class="endpoint">
+    <h3>@PostMapping/exchange-code-for-access-token</h3><span class="method">POST</span>
+    <div class="description">
+     Exchanges an authorization code for an access token using LinkedIn's API. @param code Authorization code @return ResponseEntity containing the access token
+    </div>
+   </div>
+   <div class="endpoint">
+    <h3>@PostMapping/share-on-linkedin</h3><span class="method">POST</span>
+    <div class="description">
+     Shares content on LinkedIn using the provided access token. @param content Content to share @param accessToken LinkedIn API access token @return ResponseEntity containing the LinkedIn API response
+    </div>
+   </div>
+   <div class="endpoint">
+    <h3>@PostMapping/submit</h3><span class="method">POST</span>
+    <div class="description">
+     Submits a job offer after validating the JWT token. @param authorizationHeader JWT token @param formData Form data as key-value pairs @return ResponseEntity indicating success or failure
+    </div>
+   </div>
+   <div class="endpoint">
+    <h3>@PostMapping/file</h3><span class="method">POST</span>
+    <div class="description">
+     Handles uploading CV files and extracts text from them. @param cvFiles Array of CV files @return ResponseEntity containing extracted text from the CVs
+    </div>
+   </div>
+   <div class="endpoint">
+    <h3>@GetMapping/offers/{offerId}/keywords</h3><span class="method">GET</span>
+    <div class="description">
+     No description
+    </div>
+   </div>
+  </div>
+  <div class="controller-section">
+   <h2>UserController</h2>
+   <div class="description">
+    This class serves as the main REST controller for handling user-related operations such as login, token verification, and saving user data.
+   </div>
+   <div class="metadata">
+    <p><strong>Author:</strong> Unknown Author</p>
+    <p><strong>Version:</strong> 1.0.0</p>
+    <p><strong>Last Modified:</strong> Unknown</p>
+   </div>
+   <div class="endpoint">
+    <h3>@PostMapping/login</h3><span class="method">POST</span>
+    <div class="description">
+     Endpoint to authenticate a user and generate a JWT token. @param loginRequest The login credentials (email and password). @return A response containing the user details and a JWT token, or an unauthorized response if validation fails.
+    </div>
+   </div>
+   <div class="endpoint">
+    <h3>@GetMapping/verify</h3><span class="method">GET</span>
+    <div class="description">
+     Endpoint to verify the validity of a JWT token. @param authorizationHeader The "Authorization" header containing the JWT token. @return A JSON response indicating whether the token is valid or not.
+    </div>
+   </div>
+   <div class="endpoint">
+    <h3>@PostMapping/user/save</h3><span class="method">POST</span>
+    <div class="description">
+     Endpoint to save a user to the database. @param user The user entity to be saved. @return The saved user entity, or an internal server error if saving fails.
+    </div>
+   </div>
+  </div>
+ </body>
+</html>
